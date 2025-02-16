@@ -1,16 +1,27 @@
+import TodoList from "@/components/todo-list"
+
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-8 gap-8">
-      <h1 className="text-4xl font-bold">Hello, World!</h1>
-      <p className="text-lg text-center">
-        Get started by editing <code className="bg-gray-500 p-1 rounded">src/app/page.tsx</code>.
-      </p>
-      <hr className="w-full border-gray-200 dark:border-gray-800" />
-      <h3 className="text-3xl font-bold">Next.js + Tailwind CSS</h3>
-      <h2 className="text-2xl font-bold">TodoList</h2>
-    </div>
+    <main className="min-h-screen flex flex-col">
+      <TodoList />
+    </main>
   )
 }
+
+// export default function Home() {
+//   return (
+//     <div className="flex flex-col items-center justify-center min-h-screen p-8 gap-8">
+//       <h1 className="text-4xl font-bold">Hello, World!</h1>
+//       <p className="text-lg text-center">
+//         Get started by editing <code className="bg-gray-500 p-1 rounded">src/app/page.tsx</code>.
+//       </p>
+//       <hr className="w-full border-gray-200 dark:border-gray-800" />
+//       <h3 className="text-3xl font-bold">Next.js + Tailwind CSS</h3>
+//       <h2 className="text-2xl font-bold">TodoList</h2>
+//     </div>
+//   )
+// }
+
 // import Image from "next/image";
 
 // export default function Home() {
