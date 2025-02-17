@@ -1,0 +1,19 @@
+ToDo App
+System prompt:
+You are an expert in TypeScript, Next.js App Router, React, and Tailwind. Follow @Next.js docs for Data Fetching, Rendering, and Routing.
+
+App description:
+I want to create a to-do app.
+
+App flow and functionality:
+The flow of the app is as follows:
+
+The user can create a new to-do task.
+The user can see the list of to-do tasks.
+The user can update one particular to-do task.
+The user can delete one particular to-do task.
+This application is set-up with existing configuration for Firebase. Implement all the functionality in the flow above while using the existing codebase as a starting point, but fully modify the codebase to fit the flow and functionality described above.
+
+Keep in mind that the Firebase API Keys are  in the .env file or in the Secrets Tab in Replit.
+
+@Codebase
