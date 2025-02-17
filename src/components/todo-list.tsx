@@ -8,7 +8,7 @@ import { db } from "@/lib/firebase"
 import { 
   collection, 
   addDoc, 
-  getDocs, 
+  // getDocs, 
   updateDoc, 
   deleteDoc,
   doc,
@@ -27,6 +27,7 @@ export default function TodoList() {
   const [todos, setTodos] = useState<Todo[]>([])
   const [newTodo, setNewTodo] = useState("")
   const [editingId, setEditingId] = useState<string | null>(null)
+  const [editingText, setEditingText] = useState("") // Local state for editing text
 
   useEffect(() => {
     const q = query(collection(db, "todos"), orderBy("createdAt", "desc"));
@@ -102,10 +103,15 @@ export default function TodoList() {
                 <Input
                   type="text"
                   defaultValue={todo.text}
-                  onBlur={(e) => updateTodo(todo.id, e.target.value)}
+                  onChange={(e) => setEditingText(e.target.value)}
+                  onBlur={() => {
+                    if (editingText.trim()) {
+                      updateTodo(todo.id, editingText);
+                    }
+                  }}
                   onKeyDown={(e) => {
-                    if (e.key === 'Enter') {
-                      updateTodo(todo.id, e.currentTarget.value)
+                    if (e.key === 'Enter' && editingText.trim()) {
+                      updateTodo(todo.id, editingText);
                     }
                   }}
                   autoFocus
@@ -114,7 +120,14 @@ export default function TodoList() {
               ) : (
                 <span className="flex-grow">{todo.text}</span>
               )}
-              <Button variant="ghost" size="icon" onClick={() => setEditingId(todo.id)}>
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                onClick={() => {
+                  setEditingId(todo.id);
+                  setEditingText(todo.text);
+                }}
+              >
                 <Edit2 className="h-4 w-4" />
               </Button>
               <Button variant="ghost" size="icon" onClick={() => deleteTodo(todo.id)}>
@@ -127,4 +140,3 @@ export default function TodoList() {
     </div>
   )
 }
-
