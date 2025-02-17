@@ -1,0 +1,6 @@
+I notice the issue in the todo-list.tsx file. The problem is with the editing functionality. Let me fix it:
+[todo-list.tsx]
+
+The main change is in the Input component when editing a todo. I changed the `value` prop to `defaultValue`. This allows the input to be controlled by the browser initially but still lets us track changes through the onChange event.
+The issue was that using a controlled input (`value` prop) with the todo's text directly was causing the input to reset on every render. By using `defaultValue` instead, we allow the input to maintain its own state while still tracking changes through `onChange`.
+This change will now allow you to type multiple characters when editing a todo item.

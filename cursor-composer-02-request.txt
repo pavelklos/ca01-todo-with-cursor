@@ -1,0 +1,1 @@
+The app looks OK. However, when I try to update the content of a to-do task, I am not able to add more than one character. Please fix it.
